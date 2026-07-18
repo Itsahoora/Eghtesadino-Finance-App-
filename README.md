@@ -184,4 +184,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 **Ahoora** — [Itsahoora](https://github.com/Itsahoora)
 
-*Built for students at Kharazmi University*
+*Built for students*
