@@ -1,4 +1,62 @@
-# ── OS-specific ────────────────────────────────────────────────────
+# ── Python ─────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+coverage.xml
+*.cover
+
+# mypy / type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# Ruff / linters
+.ruff_cache/
+
+# ── Application-specific generated files ───────────────────────────
+# SQLite database (created on first launch)
+*.db
+
+# User preferences (created/updated at runtime)
+user_theme.json
+user_scale.json
+
+# ── IDE / Editor ──────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ── OS-generated ──────────────────────────────────────────────────
 .DS_Store
 .DS_Store?
 ._*
@@ -8,87 +66,11 @@ ehthumbs.db
 Thumbs.db
 Desktop.ini
 
-# ── Python ─────────────────────────────────────────────────────────
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
-.hypothesis/
-.pytest_cache/
-cover/
-
-# Translations
-*.mo
-*.pot
-
-# Environments
+# ── Environment / secrets ─────────────────────────────────────────
 .env
+.env.local
 .envrc
-.venv
-venv/
-ENV/
-env.bak/
-venv.bak/
 
-# IDE / Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Project-specific
-*.db
-financial_data.db
-user_scale.json
-user_theme.json
-
-# Temporary files
+# ── Temporary / misc ──────────────────────────────────────────────
 tempCodeRunnerFile.py
-
-RELEASE_NOTES_v1.0.md
-CONTRIBUTING.md
-CHANGELOG.md
+*.log
