@@ -23,7 +23,7 @@ class DashboardScreen:
         self._canvas = None
         if self.master is not None and ctk is not None:
             self._build_ui()
-            self._setup_scroll_bindings()
+            self._capture_canvas()
 
     def _build_ui(self):
         pad = sv(BASE_PADDING)
@@ -350,36 +350,14 @@ class DashboardScreen:
         )
         self.learning_box.pack(fill='x', padx=sv(20), pady=(0, sv(14)))
 
-    # ── Scroll bindings ──
+    # ── Scroll helpers ──
 
-    def _setup_scroll_bindings(self):
-        """Bind mouse wheel events to the scrollable frame's canvas."""
+    def _capture_canvas(self):
+        """Cache a reference to the CTkScrollableFrame's internal canvas."""
         try:
-            # CTkScrollableFrame stores its canvas in _parent_canvas
             self._canvas = self.root._parent_canvas
         except AttributeError:
             self._canvas = None
-
-        if self._canvas is None:
-            return
-
-        # Bind mouse wheel events to canvas and frame
-        for widget in (self._canvas, self.root):
-            widget.bind('<MouseWheel>', self._on_mousewheel)
-            widget.bind('<Button-4>', self._on_mousewheel)
-            widget.bind('<Button-5>', self._on_mousewheel)
-
-    def _on_mousewheel(self, event):
-        """Handle mouse wheel scrolling across platforms."""
-        if self._canvas is None:
-            return
-
-        if event.num == 4:
-            self._canvas.yview_scroll(-1, 'units')
-        elif event.num == 5:
-            self._canvas.yview_scroll(1, 'units')
-        else:
-            self._canvas.yview_scroll(int(-1 * (event.delta / 120)), 'units')
 
     def _update_scroll_region(self):
         """Force scroll region recalculation after content changes."""
