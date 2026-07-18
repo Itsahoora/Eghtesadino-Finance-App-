@@ -210,7 +210,7 @@ class SettingsScreen:
 
         ctk.CTkLabel(
             about_inner,
-            text='KH-Eghtesadino  v3  —  Built for students',
+            text='Eghtesadino  v3  —  Built for students',
             font=font(11), text_color=COLORS.get('muted_text'),
         ).pack(anchor='w', pady=(sv(4), 0))
 

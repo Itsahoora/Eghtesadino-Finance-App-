@@ -1,6 +1,6 @@
 <div align="center">
 
-# KH-Eghtesadino
+# Eghtesadino
 
 **A modern personal finance desktop application for university students**
 
@@ -19,7 +19,7 @@ Track income, manage expenses, set savings goals, and receive intelligent budget
 
 ## Overview
 
-KH-Eghtesadino is a Python desktop application that helps university students take control of their finances. Built with CustomTkinter for a modern look and feel, it provides real-time balance tracking, spending analysis, and actionable insights to build better financial habits.
+Eghtesadino is a Python desktop application that helps university students take control of their finances. Built with CustomTkinter for a modern look and feel, it provides real-time balance tracking, spending analysis, and actionable insights to build better financial habits.
 
 **Key highlights:**
 - 🔐 Secure authentication with PBKDF2-SHA256 password hashing
@@ -252,6 +252,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 <div align="center">
 
-**[Back to Top](#kh-eghtesadino)**
+**[Back to Top](#eghtesadino)**
 
 </div>

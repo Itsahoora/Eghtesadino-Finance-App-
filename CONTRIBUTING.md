@@ -1,6 +1,6 @@
-# Contributing to KH-Eghtesadino
+# Contributing to Eghtesadino
 
-Thank you for your interest in contributing to KH-Eghtesadino! This document provides guidelines and information about contributing to this project.
+Thank you for your interest in contributing to Eghtesadino! This document provides guidelines and information about contributing to this project.
 
 ## Table of Contents
 
@@ -178,4 +178,4 @@ If you have questions about contributing, feel free to:
 - Open an issue with the "question" label
 - Reach out to the maintainers
 
-Thank you for contributing to KH-Eghtesadino! 🎉
+Thank you for contributing to Eghtesadino! 🎉

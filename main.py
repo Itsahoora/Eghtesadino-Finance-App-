@@ -1,4 +1,4 @@
-"""KH-Eghtesadino application entry point."""
+"""Eghtesadino application entry point."""
 
 import customtkinter as ctk
 from models.financial_advisor import FinancialAdvisor
@@ -17,7 +17,7 @@ class FinancialApp:
 
     def __init__(self):
         self.app = ctk.CTk()
-        self.app.title("KH-Eghtesadino")
+        self.app.title("Eghtesadino")
         self.app.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}")
         self.app.minsize(720, 560)
 

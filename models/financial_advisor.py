@@ -1,4 +1,4 @@
-"""Core business logic for KH-Eghtesadino.
+"""Core business logic for Eghtesadino.
 
 Handles user authentication, transaction management, goal tracking,
 financial insights, and reporting.  All DB access is centralised here.

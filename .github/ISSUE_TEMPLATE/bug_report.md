@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Report a bug to help us improve KH-Eghtesadino
+about: Report a bug to help us improve Eghtesadino
 title: "[BUG] "
 labels: bug
 assignees: ''

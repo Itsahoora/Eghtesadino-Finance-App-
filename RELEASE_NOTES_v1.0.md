@@ -1,4 +1,4 @@
-# Release Notes: KH-Eghtesadino v1.0.0
+# Release Notes: Eghtesadino v1.0.0
 
 **Release Date:** January 18, 2026  
 **Version:** 1.0.0  
@@ -8,7 +8,7 @@
 
 ## Overview
 
-KH-Eghtesadino v1.0.0 is the initial stable release of a personal finance desktop application designed specifically for university students. This release provides core financial management features with a modern, secure, and user-friendly interface.
+Eghtesadino v1.0.0 is the initial stable release of a personal finance desktop application designed specifically for university students. This release provides core financial management features with a modern, secure, and user-friendly interface.
 
 ---
 
@@ -172,6 +172,6 @@ This is the initial release. No upgrade path required.
 
 ---
 
-**Thank you for using KH-Eghtesadino!**
+**Thank you for using Eghtesadino!**
 
 *Built for students, by students*

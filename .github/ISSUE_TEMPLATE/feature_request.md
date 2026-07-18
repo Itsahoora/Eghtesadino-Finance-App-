@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest a new feature for KH-Eghtesadino
+about: Suggest a new feature for Eghtesadino
 title: "[FEATURE] "
 labels: enhancement
 assignees: ''

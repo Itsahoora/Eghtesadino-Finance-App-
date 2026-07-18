@@ -1,4 +1,4 @@
-# Repository Review: KH-Eghtesadino
+# Repository Review: Eghtesadino
 
 **Date:** January 18, 2026  
 **Reviewer:** Automated Review  
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-KH-Eghtesadino is a well-structured personal finance desktop application for university students. The codebase demonstrates good architectural patterns, security awareness, and modular design. This review documents findings and recommendations for future improvements.
+Eghtesadino is a well-structured personal finance desktop application for university students. The codebase demonstrates good architectural patterns, security awareness, and modular design. This review documents findings and recommendations for future improvements.
 
 **Overall Rating:** ⭐⭐⭐⭐ (4/5)
 
@@ -294,7 +294,7 @@ KH-Eghtesadino is a well-structured personal finance desktop application for uni
 
 ## Conclusion
 
-KH-Eghtesadino is a solid foundation for a personal finance application. The codebase is well-organized, secure, and maintainable. With the recommended improvements, it can evolve into a production-ready application.
+Eghtesadino is a solid foundation for a personal finance application. The codebase is well-organized, secure, and maintainable. With the recommended improvements, it can evolve into a production-ready application.
 
 **Key Strengths:**
 - Clean architecture
