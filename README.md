@@ -71,7 +71,6 @@ Eghtesadino is a Python desktop application that helps university students take 
 
 </div>
 
-> **Note:** Add your screenshots to `assets/screenshots/` directory.
 
 ## Getting Started
 
