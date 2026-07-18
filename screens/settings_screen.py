@@ -1,6 +1,7 @@
 import customtkinter as ctk
+import tkinter.messagebox as mb
 from utils.colors import COLORS
-from utils.scale import sv
+from utils.scale import sv, get_scale, set_scale
 from utils.constants import ICONS, BASE_PADDING
 from utils.theme_manager import theme_manager
 from utils.ui_components import (
@@ -167,7 +168,7 @@ class SettingsScreen:
 
         # Compact toggle
         compact_row = ctk.CTkFrame(display_card, fg_color='transparent')
-        compact_row.pack(fill='x', padx=sv(20), pady=(sv(4), sv(16)))
+        compact_row.pack(fill='x', padx=sv(20), pady=(sv(4), sv(8)))
 
         ctk.CTkLabel(
             compact_row, text='Compact layout',
@@ -179,6 +180,34 @@ class SettingsScreen:
             compact_row, text='', variable=self.compact_var,
             onvalue='On', offvalue='Off',
             command=self._toggle_compact_mode,
+        ).pack(side='right')
+
+        # Divider
+        ctk.CTkFrame(
+            display_card, height=1, fg_color=COLORS.get('divider'),
+        ).pack(fill='x', padx=sv(20), pady=(sv(4), sv(4)))
+
+        # Scale selector
+        scale_row = ctk.CTkFrame(display_card, fg_color='transparent')
+        scale_row.pack(fill='x', padx=sv(20), pady=(sv(4), sv(16)))
+
+        ctk.CTkLabel(
+            scale_row, text='Display scale',
+            font=font(13), text_color=COLORS.get('text_secondary'),
+        ).pack(side='left')
+
+        scale_options = ['80%', '90%', '100%', '110%', '125%', '150%']
+        current_pct = f'{int(get_scale() * 100)}%'
+        if current_pct not in scale_options:
+            current_pct = '100%'
+
+        self.scale_var = ctk.StringVar(value=current_pct)
+        ctk.CTkOptionMenu(
+            scale_row, values=scale_options, variable=self.scale_var,
+            command=self._on_scale_change,
+            width=sv(80), height=sv(32),
+            fg_color=COLORS.get('input_bg'),
+            dropdown_fg_color=COLORS.get('card_bg'), font=font(12),
         ).pack(side='right')
 
         # ── Reset section ──
@@ -244,12 +273,23 @@ class SettingsScreen:
             self.advisor.update_compact_mode_setting(
                 self.user_id, self.compact_var.get() == 'On')
 
+    def _on_scale_change(self, value):
+        """Apply new scale when user selects from dropdown."""
+        scale_pct = int(value.replace('%', '')) / 100.0
+        set_scale(scale_pct)
+        mb.showinfo(
+            "Scale Changed",
+            "Display scale updated. Some elements may need a restart to fully adjust."
+        )
+
     def _reset_defaults(self):
         theme_manager.reset()
         self.theme_var.set(theme_manager.mode.capitalize())
         self.privacy_var.set('Off')
         self.tips_var.set('On')
         self.compact_var.set('Off')
+        set_scale(1.0)
+        self.scale_var.set('100%')
         if self.user_id is not None:
             self.advisor.update_privacy_setting(self.user_id, False)
             self.advisor.update_learning_tips_setting(self.user_id, True)
@@ -267,6 +307,8 @@ class SettingsScreen:
             self.compact_var.set(
                 'On' if profile.get('compact_mode', False) else 'Off')
             self.theme_var.set(theme_manager.mode.capitalize())
+            current_pct = f'{int(get_scale() * 100)}%'
+            self.scale_var.set(current_pct)
 
     def pack(self, *args, **kwargs):
         return self.root.pack(*args, **kwargs)

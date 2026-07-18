@@ -20,8 +20,10 @@ class DashboardScreen:
         self.user_id = None
         self.show_learning_tips = True
         self.compact_mode = False
+        self._canvas = None
         if self.master is not None and ctk is not None:
             self._build_ui()
+            self._setup_scroll_bindings()
 
     def _build_ui(self):
         pad = sv(BASE_PADDING)
@@ -347,6 +349,46 @@ class DashboardScreen:
             font=(FONT_FAMILY, sv(12)), border_width=0,
         )
         self.learning_box.pack(fill='x', padx=sv(20), pady=(0, sv(14)))
+
+    # ── Scroll bindings ──
+
+    def _setup_scroll_bindings(self):
+        """Bind mouse wheel events to the scrollable frame's canvas."""
+        try:
+            # CTkScrollableFrame stores its canvas in _parent_canvas
+            self._canvas = self.root._parent_canvas
+        except AttributeError:
+            self._canvas = None
+
+        if self._canvas is None:
+            return
+
+        # Bind mouse wheel events to canvas and frame
+        for widget in (self._canvas, self.root):
+            widget.bind('<MouseWheel>', self._on_mousewheel)
+            widget.bind('<Button-4>', self._on_mousewheel)
+            widget.bind('<Button-5>', self._on_mousewheel)
+
+    def _on_mousewheel(self, event):
+        """Handle mouse wheel scrolling across platforms."""
+        if self._canvas is None:
+            return
+
+        if event.num == 4:
+            self._canvas.yview_scroll(-1, 'units')
+        elif event.num == 5:
+            self._canvas.yview_scroll(1, 'units')
+        else:
+            self._canvas.yview_scroll(int(-1 * (event.delta / 120)), 'units')
+
+    def _update_scroll_region(self):
+        """Force scroll region recalculation after content changes."""
+        try:
+            self.root.update_idletasks()
+            if self._canvas is not None:
+                self._canvas.configure(scrollregion=self._canvas.bbox('all'))
+        except Exception:
+            pass
 
     # ── Helper: stat card ──
 
@@ -689,6 +731,7 @@ class DashboardScreen:
 
         self._render_goals()
         self._render_learning_tips()
+        self._update_scroll_region()
 
     def _render_learning_tips(self):
         if not getattr(self, 'show_learning_tips', True):
