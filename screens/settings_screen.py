@@ -216,7 +216,7 @@ class SettingsScreen:
 
         ctk.CTkLabel(
             about_inner,
-            text='Redstone-NFR  |  Kharazmi University',
+            text='Itsahoora',
             font=font(11), text_color=COLORS.get('muted_text'),
         ).pack(anchor='w')
 
