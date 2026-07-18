@@ -5,16 +5,19 @@ Run with: python tests/run_theme_tests.py
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from utils.theme_manager import theme_manager
-from screens.settings_screen import SettingsScreen
-from models.financial_advisor import FinancialAdvisor
 
 errors = []
 
-# Build settings screen (master=None means no GUI root is created)
-try:
-    s = SettingsScreen(FinancialAdvisor(), None)
-except Exception as e:
-    errors.append(f'SettingsScreen build failed: {e}')
+# Build settings screen — only when a display server is available
+if os.environ.get('DISPLAY'):
+    try:
+        from screens.settings_screen import SettingsScreen
+        from models.financial_advisor import FinancialAdvisor
+        s = SettingsScreen(FinancialAdvisor(), None)
+    except Exception as e:
+        errors.append(f'SettingsScreen build failed: {e}')
+else:
+    print('Skipping SettingsScreen build (no DISPLAY)')
 
 # apply_preset is currently a no-op; just ensure it doesn't crash
 try:

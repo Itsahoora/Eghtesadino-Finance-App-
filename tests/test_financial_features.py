@@ -5,7 +5,8 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from models.financial_advisor import FinancialAdvisor
-from screens.settings_screen import SettingsScreen
+
+HAS_DISPLAY = bool(os.environ.get('DISPLAY'))
 
 
 class FinancialFeatureTests(unittest.TestCase):
@@ -46,7 +47,9 @@ class FinancialFeatureTests(unittest.TestCase):
         self.assertIn('summary', insights)
         self.assertIn('recommendations', insights)
 
+    @unittest.skipUnless(HAS_DISPLAY, 'Requires a display server (e.g. Xvfb)')
     def test_settings_screen_can_be_created(self):
+        from screens.settings_screen import SettingsScreen
         screen = SettingsScreen(self.advisor, None)
         self.assertIsNotNone(screen)
 
